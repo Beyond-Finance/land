@@ -16,5 +16,5 @@ gemspec
 group :development, :test do
   gem "combustion"
   gem "pry-rails"
-  gem "simplecov",  require: true
+  gem "simplecov",  require: false
 end
