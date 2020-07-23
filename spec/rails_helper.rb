@@ -5,6 +5,7 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require 'bundler/setup'
 require 'combustion'
+require 'simplecov'
 
 Combustion.initialize! :active_record,
                        database_reset: false,
@@ -12,6 +13,10 @@ Combustion.initialize! :active_record,
                        database_migrate: true
 
 Land.config.enabled = true
+
+SimpleCov.start 'rails' do
+  add_filter '/spec'
+end
 
 require 'spec_helper'
 
@@ -78,8 +83,8 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
 
-  # arbitrary gems may also be filtered via:
-  config.filter_gems_from_backtrace('rspec', 'rspec-rails')
+  # # arbitrary gems may also be filtered via:
+  # config.filter_gems_from_backtrace('rspec', 'rspec-rails')
 
   config.backtrace_exclusion_patterns << %r{vendor/}
 end
