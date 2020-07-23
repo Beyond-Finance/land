@@ -5,11 +5,6 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require 'bundler/setup'
 require 'combustion'
-require 'simplecov'
-
-SimpleCov.start 'rails' do
-  add_filter '/spec'
-end
 
 Combustion.initialize! :active_record,
                        database_reset: false,
