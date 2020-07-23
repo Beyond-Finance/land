@@ -77,10 +77,6 @@ jobs:
           command: |
             bundle exec rails db:setup --trace
       - run:
-          name: Compile webpacker manifest and files
-          command: |
-            bundle exec rails webpacker:compile
-      - run:
           name: Run RSpec (headless)
           command: |
             mkdir /tmp/test-results
