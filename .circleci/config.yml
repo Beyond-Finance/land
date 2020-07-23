@@ -17,15 +17,15 @@ references:
 
 jobs:
   build:
-    working_directory: ~/adr/adr_index
+    working_directory: ~/land/land_index
     docker:
       - *default_docker_ruby_executor
     steps:
       - checkout
       - restore_cache:
           keys:
-            - adr-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
-            - adr-
+            - land-{{ checksum "Gemfile.lock" }}
+            - land-
       - run:
           name: yarn install
           command: yarn install
@@ -124,7 +124,7 @@ jobs:
           command: |
             ./cc-test-reporter sum-coverage --output - codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - build
