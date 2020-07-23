@@ -16,6 +16,5 @@ gemspec
 group :development, :test do
   gem "combustion"
   gem "pry-rails"
-  gem "rspec_junit_formatter"
-  gem "simplecov",  require: false
+  gem "simplecov",  require: true
 end
