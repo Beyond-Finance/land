@@ -594,6 +594,24 @@
           null
         ]
       },
+      "/Users/AMinhas/Documents/bf-land/land/app/models/land/cookie.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          35,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/AMinhas/Documents/bf-land/land/app/models/land/visit.rb": {
         "lines": [
           1,
@@ -626,24 +644,6 @@
           null,
           1,
           1,
-          null,
-          null
-        ]
-      },
-      "/Users/AMinhas/Documents/bf-land/land/app/models/land/cookie.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          35,
-          null,
           null,
           null
         ]
@@ -1328,6 +1328,6 @@
         }
       }
     },
-    "timestamp": 1595537921
+    "timestamp": 1595540321
   }
 }
