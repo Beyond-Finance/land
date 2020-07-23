@@ -8,7 +8,7 @@ require 'combustion'
 
 Combustion.initialize! :active_record,
                        database_reset: false,
-                       load_schema: false,
+                       load_schema: true,
                        database_migrate: true
 
 Land.config.enabled = true
