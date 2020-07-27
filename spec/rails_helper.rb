@@ -7,16 +7,16 @@ require 'bundler/setup'
 require 'combustion'
 require 'simplecov'
 
+SimpleCov.start 'rails' do
+  add_filter '/spec'
+end
+
 Combustion.initialize! :active_record,
                        database_reset: false,
                        load_schema: false,
                        database_migrate: true
 
 Land.config.enabled = true
-
-SimpleCov.start 'rails' do
-  add_filter '/spec'
-end
 
 require 'spec_helper'
 
