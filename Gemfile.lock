@@ -4,6 +4,7 @@ PATH
     land (0.1.4)
       activerecord (> 4.0.0)
       lookup_by (~> 0.11.0)
+      simplecov (< 0.18)
 
 GEM
   remote: https://rubygems.org/
@@ -49,6 +50,7 @@ GEM
     erubi (1.9.0)
     i18n (1.8.4)
       concurrent-ruby (~> 1.0)
+    json (2.3.1)
     loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -103,10 +105,11 @@ GEM
     rspec-support (3.9.3)
     rspec_junit_formatter (0.4.1)
       rspec-core (>= 2, < 4, != 2.12.0)
-    simplecov (0.18.5)
+    simplecov (0.17.1)
       docile (~> 1.1)
-      simplecov-html (~> 0.11)
-    simplecov-html (0.12.2)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
@@ -127,7 +130,6 @@ DEPENDENCIES
   rspec
   rspec-rails
   rspec_junit_formatter
-  simplecov
 
 BUNDLED WITH
    2.1.4
