@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV['RAILS_ENV'] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
-require 'bundler/setup'
-require 'combustion'
-require 'simplecov'
+require "bundler/setup"
+require "combustion"
+require "simplecov"
 
-SimpleCov.start 'rails' do
-  add_filter '/spec'
+SimpleCov.start "rails" do
+  add_filter "/spec"
 end
 
 Combustion.initialize! :active_record,
@@ -18,13 +18,13 @@ Combustion.initialize! :active_record,
 
 Land.config.enabled = true
 
-require 'spec_helper'
+require "spec_helper"
 
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+abort("The Rails environment is running in production mode!") if Rails.env.production?
 
-require 'pry'
-require 'rspec/rails'
+require "pry"
+require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -40,8 +40,8 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -84,7 +84,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   # # arbitrary gems may also be filtered via:
-  config.filter_gems_from_backtrace('rspec', 'rspec-rails')
+  config.filter_gems_from_backtrace("rspec", "rspec-rails")
 
   config.backtrace_exclusion_patterns << %r{vendor/}
 end
