@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= "test"
+ENV['RAILS_ENV'] ||= "test"
 
-require "bundler/setup"
+require 'bundler/setup'
 require "combustion"
 require "simplecov"
 
-SimpleCov.start "rails" do
-  add_filter "/spec"
-end
+SimpleCov.start 'rails' do	SimpleCov.start "rails" do
+  add_filter '/spec'	  add_filter "/spec"
+end	end
 
 Combustion.initialize! :active_record,
-                       database_reset: false,
-                       load_schema: false,
-                       database_migrate: true
+  database_reset: false,
+  load_schema: false,
+  database_migrate: true
 
 Land.config.enabled = true
 
@@ -40,7 +40,7 @@ require "rspec/rails"
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
+# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
@@ -83,7 +83,7 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
 
-  # # arbitrary gems may also be filtered via:
+  # arbitrary gems may also be filtered via:
   config.filter_gems_from_backtrace("rspec", "rspec-rails")
 
   config.backtrace_exclusion_patterns << %r{vendor/}
