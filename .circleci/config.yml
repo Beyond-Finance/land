@@ -24,7 +24,6 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - land-{{ checksum "Gemfile.lock" }}
             - land-
       - run:
           name: yarn install
@@ -32,7 +31,6 @@ jobs:
       - run:
           name: Bundle Install
           command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
             bundle check || bundle install
@@ -52,12 +50,10 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - land-{{ checksum "Gemfile.lock" }}
             - land-
       - run:
           name: Bundle Install
           command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
             bundle check || bundle install
