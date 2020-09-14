@@ -1,4 +1,16 @@
 version: 2
+
+references:
+  default_docker_ruby_executor: &default_docker_ruby_executor
+    image: circleci/ruby:2.7.1-node-browsers
+    environment:
+      BUNDLE_PATH: vendor/bundle
+      PGHOST: 127.0.0.1
+      PGUSER: beyondfinance
+      RAILS_ENV: test
+      COVERAGE: true
+      TZ: /usr/share/zoneinfo/America/Chicago
+
 jobs:
   build:
     docker:
