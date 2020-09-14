@@ -1,3 +1,10 @@
 version: 2
-
 jobs:
+  build:
+    steps:
+      - run:
+        name: Placholder
+        command: |
+          echo 'Configuration file provided to appease CircleCI.'
+          echo 'CircleCI not currently configured to do anything meaningful on this repo.'
+  
