@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    docker:
+      - *default_docker_ruby_executor
     steps:
       - run:
           name: Placholder
