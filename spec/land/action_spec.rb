@@ -58,8 +58,9 @@ module Land
         # expect(pageview.request_id).to eq uuid
       end
 
+
       it 'tracks referers' do
-        request.headers['HTTP_REFERER'] = "https://google.com/results?q=needle"
+        request.headers['HTTP_REFERER'] = "https://google.com/results?q=needle foo"
 
         get :test
 
@@ -69,7 +70,7 @@ module Land
 
         expect(visit.referer.domain).to       eq "google.com"
         expect(visit.referer.path).to         eq "/results"
-        expect(visit.referer.query_string).to eq "q=needle"
+        expect(visit.referer.query_string).to eq "q=needle+foo"
       end
 
       it 'sets cookies' do
@@ -170,6 +171,24 @@ module Land
         expect(controller.land.pageview.click_id).to eq click_id
       end
 
+    context 'when params have nil values' do
+      it 'tracks attributions' do
+        campaign = SecureRandom.uuid
+        params = {
+          ad_type: nil,
+          campaign: campaign
+        }
+
+       expect { Land::Attribution.digest(params.stringify_keys) }.to_not raise_error
+
+       get :test, params: params
+
+       a = Attribution.find_by(campaign_id: Campaign[campaign].id)
+
+        expect(a.ad_type).to eq nil
+      end
+    end
+
       { 'pe'  => 'product_extensions',
         'pla' => 'product_listing'
       }.each do |key, value|
@@ -245,6 +264,14 @@ module Land
           expect(Attribution.last.source).to eq value
         end
       end
+    end
+
+    it 'tracks events' do
+      EventType.create(event_type: 'test')
+
+      get :test
+      
+      expect { Event.create(visit_id: Visit.last.id, event_type: 'test', pageview_id: Pageview.last.id) }.not_to raise_error
     end
   end
 end
