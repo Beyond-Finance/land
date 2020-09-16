@@ -58,7 +58,6 @@ module Land
         # expect(pageview.request_id).to eq uuid
       end
 
-
       it 'tracks referers' do
         request.headers['HTTP_REFERER'] = "https://google.com/results?q=needle foo"
 
@@ -71,6 +70,15 @@ module Land
         expect(visit.referer.domain).to       eq "google.com"
         expect(visit.referer.path).to         eq "/results"
         expect(visit.referer.query_string).to eq "q=needle+foo"
+      end
+
+      it 'tracks referers with no path' do
+        request.headers['HTTP_REFERER'] = 'http://m.facebook.com'
+        get :test
+        expect(controller.land.visit.referer).to have_attributes(
+          domain: 'm.facebook.com',
+          path: ''
+        )
       end
 
       it 'sets cookies' do
