@@ -170,7 +170,7 @@ module Land
       query       = params.except(*ATTRIBUTION_KEYS)
 
       begin
-        @referer = Referer.where(domain_id:       Domain[referer_uri.host],
+        @referer = Referer.where(domain_id:       Domain[referer_uri.host.to_s],
                                  path_id:         Path[referer_uri.path],
                                  query_string_id: QueryString[query.to_query],
                                  attribution_id:  attribution.id).first_or_create
@@ -184,7 +184,7 @@ module Land
     end
 
     def referer_uri
-      @referer_uri ||= URI(request.referer) if request.referer
+      @referer_uri ||= URI(request.referer.sub(/\Awww\./i, '//\0')) if request.referer.present?
     end
 
     def attribution
