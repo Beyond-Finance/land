@@ -33,12 +33,13 @@ module Land
 
     describe 'track_with_land!' do
       it 'tracks visits' do
-        expect { get :test }.to change { Visit.count }.by 1
+        request.headers['X-Forwarded-For'] = '192.168.1.100'
 
+        expect { get :test }.to change { Visit.count }.by 1
         visit = controller.land.visit
 
-        expect(visit.ip_address.to_s).to eq "0.0.0.0"
-        expect(visit.user_agent.name).to eq "Rails Testing"
+        expect(visit.ip_address.to_s).to eq '192.168.1.100'
+        expect(visit.user_agent.name).to eq 'Rails Testing'
       end
 
       it 'tracks pageviews' do

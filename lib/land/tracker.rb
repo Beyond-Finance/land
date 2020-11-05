@@ -238,7 +238,7 @@ module Land
       visit.cookie_id     = @cookie_id
       visit.referer_id    = referer.try(:id)
       visit.user_agent_id = user_agent.id
-      visit.ip_address    = remote_ip
+      visit.ip_address    = request.x_forwarded_for || request.remote_ip
       visit.save!
 
       @visit_id = @visit.id
