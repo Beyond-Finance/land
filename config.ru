@@ -7,7 +7,6 @@ Bundler.require :default, :development
 
 Combustion.initialize! :active_record,
   database_reset: false,
-  load_schema: false,
-  database_migrate: false
-
+  load_schema: false
+  
 run Combustion::Application
