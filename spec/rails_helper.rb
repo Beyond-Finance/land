@@ -17,6 +17,7 @@ Combustion.initialize! :active_record,
   database_migrate: true
 
 Land.config.enabled = true
+Land.config.legacy_connection_handling = false
 
 require "spec_helper"
 
