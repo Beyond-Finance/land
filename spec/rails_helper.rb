@@ -14,7 +14,7 @@ end
 Combustion.initialize! :active_record,
   database_reset: false,
   load_schema: false,
-  database_migrate: true
+  database_migrate: false
 
 Land.config.enabled = true
 
@@ -82,9 +82,6 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
-
-  config.legacy_connection_handling = false
-
 
   # arbitrary gems may also be filtered via:
   config.filter_gems_from_backtrace("rspec", "rspec-rails")
