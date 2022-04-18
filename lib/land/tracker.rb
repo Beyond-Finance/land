@@ -2,6 +2,7 @@
 
 require "digest/sha2"
 require "uri"
+require "addressable/uri"
 
 module Land
   class Tracker
