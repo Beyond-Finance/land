@@ -513,7 +513,8 @@ CREATE TABLE land.events (
     pageview_id uuid,
     meta json,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    request_id uuid
+    request_id uuid,
+    metadata jsonb
 );
 
 
@@ -2742,6 +2743,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20201024041516'),
 ('20201027042604'),
 ('20220428195358'),
-('20220914012158');
+('20220914012158'),
+('20230410171245');
 
 
