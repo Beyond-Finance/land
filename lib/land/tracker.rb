@@ -124,7 +124,8 @@ module Land
     def queue_event(type, meta = {})
       return unless tracking?
 
-      Event.new(visit_id: @visit_id, event_type: type, meta: meta, request_id: request.uuid).tap do |event|
+      # TODO: remove duplicate meta "metacontent" after the column type is switched over to jsonb
+      Event.new(visit_id: @visit_id, event_type: type, meta: meta, request_id: request.uuid, metacontent: meta).tap do |event|
         @events << event
       end
     end
