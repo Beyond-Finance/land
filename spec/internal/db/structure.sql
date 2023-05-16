@@ -1283,7 +1283,8 @@ CREATE TABLE land.visits (
     owner_id integer,
     ip_address inet NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    raw_query_string text
 );
 
 
@@ -2283,13 +2284,6 @@ CREATE INDEX "index_land.events_on_created_at" ON land.events USING btree (creat
 
 
 --
--- Name: index_land.events_on_pageview_id; Type: INDEX; Schema: land; Owner: -
---
-
-CREATE INDEX "index_land.events_on_pageview_id" ON land.events USING btree (pageview_id);
-
-
---
 -- Name: index_land.events_on_request_id; Type: INDEX; Schema: land; Owner: -
 --
 
@@ -2899,6 +2893,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20201027042604'),
 ('20220428195358'),
 ('20220914012158'),
-('20230116162450');
+('20230116162450'),
+('20230308215104');
 
 
