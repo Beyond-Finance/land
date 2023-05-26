@@ -17,6 +17,13 @@ CREATE SCHEMA land;
 
 
 --
+-- Name: public; Type: SCHEMA; Schema: -; Owner: -
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+--
 -- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -2284,6 +2291,13 @@ CREATE INDEX "index_land.events_on_created_at" ON land.events USING btree (creat
 
 
 --
+-- Name: index_land.events_on_pageview_id; Type: INDEX; Schema: land; Owner: -
+--
+
+CREATE INDEX "index_land.events_on_pageview_id" ON land.events USING btree (pageview_id);
+
+
+--
 -- Name: index_land.events_on_request_id; Type: INDEX; Schema: land; Owner: -
 --
 
@@ -2414,13 +2428,6 @@ CREATE UNIQUE INDEX query_strings__u_query_string ON land.query_strings USING bt
 --
 
 CREATE INDEX referers_attribution_id_idx ON land.referers USING btree (attribution_id);
-
-
---
--- Name: referers_domain_id_idx; Type: INDEX; Schema: land; Owner: -
---
-
-CREATE INDEX referers_domain_id_idx ON land.referers USING btree (domain_id);
 
 
 --
@@ -2894,6 +2901,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220428195358'),
 ('20220914012158'),
 ('20230116162450'),
-('20230308215104');
+('20230308215104'),
+('20230508161536'),
+('20230508161718'),
+('20230526200145'),
+('20230526200413');
 
 
