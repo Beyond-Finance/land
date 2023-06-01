@@ -2025,13 +2025,6 @@ CREATE INDEX attributions_ad_group_id_idx ON land.attributions USING btree (ad_g
 
 
 --
--- Name: attributions_ad_type_id_idx; Type: INDEX; Schema: land; Owner: -
---
-
-CREATE INDEX attributions_ad_type_id_idx ON land.attributions USING btree (ad_type_id);
-
-
---
 -- Name: attributions_affiliate_id_idx; Type: INDEX; Schema: land; Owner: -
 --
 
@@ -2288,13 +2281,6 @@ CREATE UNIQUE INDEX http_methods__u_http_method ON land.http_methods USING btree
 --
 
 CREATE INDEX "index_land.events_on_created_at" ON land.events USING btree (created_at);
-
-
---
--- Name: index_land.events_on_pageview_id; Type: INDEX; Schema: land; Owner: -
---
-
-CREATE INDEX "index_land.events_on_pageview_id" ON land.events USING btree (pageview_id);
 
 
 --
@@ -2902,8 +2888,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220914012158'),
 ('20230116162450'),
 ('20230308215104'),
-('20230508161536'),
-('20230508161718'),
 ('20230526200145'),
 ('20230526200413');
 
