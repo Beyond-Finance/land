@@ -2,7 +2,6 @@
 
 require "digest/sha2"
 require "uri"
-require "addressable/uri"
 
 module Land
   class Tracker
@@ -192,7 +191,9 @@ module Land
     end
 
     def referer_uri
-      @referer_uri ||= Addressable::URI.parse(request.referer.sub(/\Awww\./i, '//\0')) if request.referer.present?
+      @referer_uri ||= URI.parse(request.referer.sub(/\Awww\./i, '//\0')) if request.referer.present?
+    rescue URI::InvalidURIError => _e
+      @referer_uri = URI.parse("/invalid-referer-uri?referer=#{CGI.escape(request.referer)}")
     end
 
     def attribution
