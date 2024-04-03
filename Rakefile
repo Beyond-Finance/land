@@ -45,7 +45,6 @@ end
 %w[
   app:template
   app:update
-  restart
 ].each { |name| Rake::Task[name].clear }
 
 %w[
@@ -54,7 +53,6 @@ end
   install:local
   log:clear
   rerdoc
-  secret
   time:zones
   tmp:clear
   tmp:create

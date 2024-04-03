@@ -1,7 +1,7 @@
 version: 2.1
 references:
   default_docker_ruby_executor: &default_docker_ruby_executor
-    image: circleci/ruby:2.7.1-node-browsers
+    image: cimg/ruby:3.3.0
     environment:
       BUNDLE_PATH: vendor/bundle
       PGHOST: 127.0.0.1
@@ -26,9 +26,6 @@ jobs:
           keys:
             - land-
       - run:
-          name: yarn install
-          command: yarn install
-      - run:
           name: Bundle Install
           command: |
             gem install bundler
@@ -36,7 +33,6 @@ jobs:
       - save_cache:
           key: land-{{ checksum "Gemfile.lock" }}
           paths:
-            - ~/land/land_index/node_modules
             - ~/land/land_index/vendor/bundle
 
   test:
