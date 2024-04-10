@@ -16,6 +16,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'bundler/setup'
+require 'simplecov'
+
 SimpleCov.minimum_coverage 86
 SimpleCov.start 'rails' do
   add_filter '/spec'

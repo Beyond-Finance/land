@@ -3,13 +3,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= "test"
 
-require 'bundler/setup'
+require "spec_helper"
 require "combustion"
-require "simplecov"
-
-SimpleCov.start "rails" do
-  add_filter "/spec"
-end
 
 Combustion.initialize! :active_record,
   database_reset: false,
@@ -17,8 +12,6 @@ Combustion.initialize! :active_record,
   database_migrate: false
 
 Land.config.enabled = true
-
-require "spec_helper"
 
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
