@@ -1,4 +1,6 @@
 # Land
+[![codecov](https://codecov.io/gh/Beyond-Finance/land/graph/badge.svg?token=D2L5P2D9AI)](https://codecov.io/gh/Beyond-Finance/land)
+
 Land is a clickstream tracker for Rails applications. It will track visits, pageviews, marketing attribution and more.
 
 ## Installation

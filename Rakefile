@@ -41,12 +41,6 @@ else
   task default: :spec
 end
 
-# Clean up some clutter in `rake -T`.
-%w[
-  app:template
-  app:update
-].each { |name| Rake::Task[name].clear }
-
 %w[
   clean
   clobber_rdoc
