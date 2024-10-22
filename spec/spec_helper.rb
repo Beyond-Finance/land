@@ -18,6 +18,7 @@
 
 require 'bundler/setup'
 require 'simplecov'
+require 'simplecov-cobertura'
 
 SimpleCov.minimum_coverage 86
 SimpleCov.start 'rails' do
@@ -25,6 +26,8 @@ SimpleCov.start 'rails' do
   # rails-generated superclass files
   add_filter '/app/jobs/application_job.rb'
   add_filter '/app/models/application_record.rb'
+
+  formatter SimpleCov::Formatter::CoberturaFormatter
 end
 
 RSpec.configure do |config|
