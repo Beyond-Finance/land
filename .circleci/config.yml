@@ -14,7 +14,7 @@ references:
       COVERAGE: true
       TZ: /usr/share/zoneinfo/America/Chicago
   postgres: &postgres
-    image: cimg/postgres:13.4
+    image: cimg/postgres:16.8
     environment:
       POSTGRES_DB: land_test
       POSTGRES_USER: land
